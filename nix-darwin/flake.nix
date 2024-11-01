@@ -46,31 +46,33 @@
           onActivation.upgrade = true;
         };
 
-        environment.systemPackages =
-          [
-            # apps
-            pkgs.alacritty
-            pkgs.obsidian
+        environment.systemPackages = with pkgs; [
+          # apps
+          obsidian
 
-            # dev tools
-            pkgs.doppler
-            pkgs.go
-            pkgs.nodejs
-            pkgs.nixpkgs-fmt
-            pkgs.tenv
+          # dev tools
+          doppler
+          go
+          tenv
+          nixpkgs-fmt
+          nodejs # Latest stable version
+          nodePackages.pnpm
 
-            # cloud cli
-            pkgs.awscli2
+          # cloud cli
+          awscli2
+
+          # cli
+          neovim
+
+          # shell
+          fzf
+          zoxide
+          oh-my-posh
+        ];
 
 
-            # cli
-            pkgs.neovim
 
-            # shell
-            pkgs.fzf
-            pkgs.zoxide
-            pkgs.oh-my-posh
-          ];
+
 
         fonts.packages = [
           (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -86,7 +88,38 @@
         nix.settings.experimental-features = "nix-command flakes";
 
         # Create /etc/zshrc that loads the nix-darwin environment.
-        programs.zsh.enable = true; # default shell on catalina
+        # default shell on catalina and up
+        # Configure zsh with the Node.js version switching functions
+        programs.zsh = {
+          enable = true;
+          interactiveShellInit =
+            let
+              node18 = pkgs.nodejs_18;
+              node20 = pkgs.nodejs_20;
+              node22 = pkgs.nodejs_22;
+            in
+            ''
+              function use_node18() {
+                export PATH="${node18}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                echo "Now using Node.js $(node --version)"
+              }
+            
+              function use_node20() {
+                export PATH="${node20}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                echo "Now using Node.js $(node --version)"
+              }
+
+              function use_node22() {
+                export PATH="${node22}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                echo "Now using Node.js $(node --version)"
+              }
+
+              function use_node_default() {
+                export PATH="${pkgs.nodejs}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                echo "Now using Node.js $(node --version)"
+              }
+            '';
+        };
         # programs.fish.enable = true;
 
         # Set Git commit hash for darwin-version.
