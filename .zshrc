@@ -72,7 +72,6 @@ brew_install_and_dump() {
 
 # Aliases
 alias ls='ls --color'
-alias brewi='brew_install_and_dump'
 
 # shell integrations
 eval "$(fzf --zsh)"
