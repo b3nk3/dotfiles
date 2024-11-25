@@ -51,6 +51,7 @@
           obsidian
 
           # dev tools
+          bruno # https://www.usebruno.com/
           doppler
           go
           tenv
