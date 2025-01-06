@@ -61,6 +61,11 @@ use_default # Switch to system default
 ## Updating
 
 ```bash
+cd ./nix-darwin
+nix flake update
+```
+
+```bash
 darwin-rebuild switch --flake ./nix-darwin#macbook
 ```
 
