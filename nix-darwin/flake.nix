@@ -23,14 +23,15 @@
         homebrew = {
           enable = true;
           brews = [
-            "mas"
-            "granted"
+            "awscli"
             "aws-sso-util"
+            "granted"
+            "mas"
           ];
           casks = [
             "iina"
-            "the-unarchiver"
             "raycast"
+            "the-unarchiver"
           ];
           taps = [
             "common-fate/granted"
@@ -58,12 +59,6 @@
           nixpkgs-fmt
           nodejs # Latest stable version
           nodePackages.pnpm
-
-          # cloud cli
-          awscli2
-
-          # cli
-          neovim
 
           # shell
           fzf
