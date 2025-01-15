@@ -39,6 +39,7 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 
 # keybindings
 # bindkey '^f' autosuggest-accept
+bindkey "^[[3~" delete-char
 
 # bindkey history search to option+up/down
 bindkey '^[^[[A' history-search-backward
