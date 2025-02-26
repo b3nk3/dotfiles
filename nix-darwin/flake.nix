@@ -77,7 +77,7 @@
 
 
         # Auto upgrade nix package and the daemon service.
-        services.nix-daemon.enable = true;
+        nix.enable = true;
         # nix.package = pkgs.nix;
 
         # Necessary for using flakes on this system.
@@ -129,14 +129,11 @@
         nixpkgs.hostPlatform = "aarch64-darwin";
 
         # enable TouchID for sudo commands in terminal
-        security.pam.enableSudoTouchIdAuth = true;
+        security.pam.services.sudo_local.touchIdAuth = true;
 
         # home manager
         users.users.benszabo.home = "/Users/benszabo";
         home-manager.backupFileExtension = "backup";
-        nix.configureBuildUsers = true;
-        nix.useDaemon = true;
-
       };
     in
     {
