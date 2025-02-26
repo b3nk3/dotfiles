@@ -25,8 +25,11 @@
           brews = [
             "awscli"
             "aws-sso-util"
+            "derailed/k9s/k9s"
+            "easy-rsa"
             "granted"
             "mas"
+            "terraform-docs"
           ];
           casks = [
             "iina"
