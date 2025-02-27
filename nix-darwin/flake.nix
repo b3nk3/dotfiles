@@ -58,10 +58,13 @@
           bruno # https://www.usebruno.com/
           doppler
           go
-          tenv
+          goreleaser
+          gh
+          mise
           nixpkgs-fmt
           nodejs # Latest stable version
           nodePackages.pnpm
+          tenv
 
           # shell
           fzf
