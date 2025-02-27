@@ -1,0 +1,71 @@
+[user]
+email = me@benszabo.co.uk
+name = Ben Szabo
+signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOGPefpWpSvr5a5SsgTlX5SWRUBUnftyY70h3mu222DF
+
+[core]
+editor = code --wait
+excludesfile = ~/.gitignore
+
+[diff]
+tool = vscode
+algorithm = histogram
+colorMoved = plain
+mnemonicPrefix = true
+renames = true
+
+[difftool "vscode"]
+cmd = code --wait --diff $LOCAL $REMOTE
+
+[pull]
+rebase = true
+
+[commit]
+gpgsign = true
+
+[gpg]
+format = ssh
+
+[gpg "ssh"]
+program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[column]
+ui = auto
+
+[branch]
+sort = -committerdate
+
+[tag]
+sort = version:refname
+
+[init]
+defaultBranch = main
+
+[push]
+default = simple
+autoSetupRemote = true
+followTags = true
+
+[fetch]
+prune = true
+pruneTags = true
+all = true
+
+[help]
+autocorrect = prompt
+
+[commit]
+verbose = true
+
+[rerere]
+enabled = true
+autoupdate = true
+
+[rebase]
+autoSquash = true
+autoStash = true
+updateRefs = true
+
+[merge]
+# (just 'diff3' if git version < 2.3)
+conflictstyle = zdiff3
