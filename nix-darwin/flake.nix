@@ -140,7 +140,7 @@
           # enable TouchID for sudo commands in terminal
           security.pam.services.sudo_local.enable = true;
           security.pam.services.sudo_local.touchIdAuth = true;
-          security.pam.services.sudo_local.reattach = true;
+          security.pam.services.sudo_local.text = "auth sufficient pam_tid.so.2"; # workaround...
 
           # home manager
           users.users.benszabo.home = "/Users/benszabo";
