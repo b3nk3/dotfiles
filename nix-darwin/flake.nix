@@ -73,6 +73,7 @@
             nixfmt-rfc-style
             nodejs # Latest stable version
             nodePackages.pnpm
+            ollama
             tenv
 
             # shell
