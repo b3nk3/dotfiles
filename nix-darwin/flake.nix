@@ -33,6 +33,7 @@
             enable = true;
             brews = [
               "awscli"
+              "aws-rds-bastion-helper"
               "aws-sso-util"
               "derailed/k9s/k9s"
               "easy-rsa"
@@ -47,6 +48,7 @@
             ];
             taps = [
               "common-fate/granted"
+              "lottiehq/tap"
             ];
             masApps = {
               #  Install Mac App Store apps
