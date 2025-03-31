@@ -44,6 +44,7 @@
     # # symlink to the Nix store copy.
     ".zshrc".source = ../.zshrc;
     ".gitconfig".source = ../.gitconfig;
+    ".omp_zen.toml".source = ../oh-my-posh/zen.toml;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
