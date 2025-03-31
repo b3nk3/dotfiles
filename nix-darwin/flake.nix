@@ -45,6 +45,7 @@
               "iina"
               "raycast"
               "the-unarchiver"
+              "ghostty"
             ];
             taps = [
               "common-fate/granted"
