@@ -39,12 +39,11 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
+    # The left hand side is the path to the file in your home directory. 
+    # The right hand is the path to the file in the repo, relative to this file.
     ".zshrc".source = ../.zshrc;
     ".gitconfig".source = ../.gitconfig;
-    ".omp_zen.toml".source = ../oh-my-posh/zen.toml;
+    "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
