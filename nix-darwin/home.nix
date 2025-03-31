@@ -44,6 +44,7 @@
     ".zshrc".source = ../.zshrc;
     ".gitconfig".source = ../.gitconfig;
     "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
+    # "$HOME/Library/Application\ Support/com.mitchellh.ghostty/config".source = ../.ghostty.txt;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
