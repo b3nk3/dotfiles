@@ -1,9 +1,13 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
 version = 3
 final_space = true
 
 [palette]
 # NeonPunk color scheme
+background = "#262132"
+foreground = "#c7c7c7"
+
 black = "#000000"
 red = "#ff6060"
 green = "#62ffc6"
@@ -20,83 +24,88 @@ brightBlue = "#03edf9"
 brightMagenta = "#ff7edb"
 brightCyan = "#03edf9"
 brightWhite = "#ffffff"
-background = "#272134"
-foreground = "#bbbbbb"
+
 
 [secondary_prompt]
-  template = '❯❯ '
-  foreground = 'p:magenta'
-  background = 'transparent'
+template = '❯❯ '
+foreground = 'p:magenta'
+background = 'transparent'
 
 [transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:magenta{{end}}']
+template = '❯ '
+background = 'transparent'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:cyan{{end}}',
+]
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'prompt'
+alignment = 'left'
+newline = true
 
-  [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = 'p:blue'
-    background = 'transparent'
-    type = 'path'
-    style = 'plain'
+[[blocks.segments]]
+type = 'path'
+style = 'plain'
+template = '{{ .Path }}'
+foreground = 'p:blue'
+background = 'transparent'
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      style = 'full'
+[blocks.segments.properties]
+cache_duration = 'none'
+style = 'full'
 
-  [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    foreground = 'p:magenta'
-    background = 'transparent'
-    type = 'git'
-    style = 'plain'
+[[blocks.segments]]
+template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <p:cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+foreground = 'p:magenta'
+background = 'transparent'
+type = 'git'
+style = 'plain'
 
-    [blocks.segments.properties]
-      branch_icon = ''
-      cache_duration = 'none'
-      commit_icon = '@'
-      fetch_status = true
-
-[[blocks]]
-  type = 'rprompt'
-
-  [[blocks.segments]]
-    template = ' {{.Profile}} '
-    foreground = 'p:black'
-    background = 'p:yellow'
-    type = 'aws'
-    style = 'diamond'
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
-
-  [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = 'p:yellow'
-    background = 'transparent'
-    type = 'executiontime'
-    style = 'plain'
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      threshold = 5000
+[blocks.segments.properties]
+branch_icon = ''
+cache_duration = 'none'
+commit_icon = '@'
+fetch_status = true
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
+type = 'rprompt'
 
-  [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
-    type = 'text'
-    style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}p:red{{end}}', '{{if eq .Code 0}}p:cyan{{end}}']
+[[blocks.segments]]
+template = ' {{.Profile}} '
+foreground = 'p:black'
+background = 'p:yellow'
+type = 'aws'
+style = 'diamond'
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
+[blocks.segments.properties]
+cache_duration = 'none'
+
+[[blocks.segments]]
+template = '{{ .FormattedMs }}'
+foreground = 'p:yellow'
+background = 'transparent'
+type = 'executiontime'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+threshold = 5000
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '❯'
+background = 'transparent'
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  '{{if gt .Code 0}}p:red{{end}}',
+  '{{if eq .Code 0}}p:magenta{{end}}',
+]
+
+[blocks.segments.properties]
+cache_duration = 'none'
