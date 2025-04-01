@@ -8,6 +8,7 @@ fi
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export EDITOR="code --wait"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
