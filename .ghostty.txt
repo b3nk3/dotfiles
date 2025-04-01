@@ -3,6 +3,8 @@ font-size = 16
 font-family = JetBrainsMonoNL NFM ExtraLight
 
 # NeonPunk color scheme
+background = 262132
+foreground = c7c7c7
 # Standard ANSI colors (0-7) using numeric indices
 # Black
 palette = 0=#000000

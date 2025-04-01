@@ -39,12 +39,12 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # The left hand side is the path to the file in your home directory. 
+    # The left hand side is the path to the file in your home directory.
     # The right hand is the path to the file in the repo, relative to this file.
     ".zshrc".source = ../.zshrc;
     ".gitconfig".source = ../.gitconfig;
     "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
-    ".ghostty/config".source = ../.ghostty.txt;
+    "/.config/ghostty/config".source = ../.ghostty.txt;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
