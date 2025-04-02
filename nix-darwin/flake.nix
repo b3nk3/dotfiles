@@ -73,6 +73,7 @@
             goreleaser
             gh
             mise
+            neovim
             nixfmt-rfc-style
             nodejs # Latest stable version
             nodePackages.pnpm
