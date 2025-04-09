@@ -33,8 +33,8 @@
             enable = true;
             brews = [
               "awscli"
-              "aws-rds-bastion-helper"
               "aws-sso-util"
+              "bifrost"
               "derailed/k9s/k9s"
               "easy-rsa"
               "granted"
