@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,7 +34,7 @@
             brews = [
               "awscli"
               "aws-sso-util"
-              "bifrost"
+              "lottiehq/tap/bifrost"
               "derailed/k9s/k9s"
               "easy-rsa"
               "granted"
@@ -50,7 +50,11 @@
             ];
             taps = [
               "common-fate/granted"
-              "lottiehq/tap"
+              {
+                name = "lottiehq/tap";
+                clone_target = "git@github.com:LottieHQ/homebrew-tap.git";
+                force_auto_update = true;
+              }
             ];
             masApps = {
               #  Install Mac App Store apps
