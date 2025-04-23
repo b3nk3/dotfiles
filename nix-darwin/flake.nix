@@ -46,6 +46,7 @@
               "raycast"
               "the-unarchiver"
               "ghostty"
+              "session-manager-plugin"
             ];
             taps = [
               "common-fate/granted"

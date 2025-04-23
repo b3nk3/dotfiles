@@ -1,5 +1,3 @@
-Ah, you're right! Let me fix the structure one more time to match your exact file layout:
-
 # Dotfiles
 
 MacOS system configuration using nix-darwin and home-manager.
@@ -52,17 +50,19 @@ use_default # Switch to system default
 .
 ├── README.md
 ├── .zshrc           # Shell configuration
-└── nix-darwin
-    ├── flake.lock   # Flake lock file
-    ├── flake.nix    # System and flake configuration
-    └── home.nix     # Home-manager configuration
+├── .gitconfig       # Git configuration
+├── .ghostty.txt     # Ghostty terminal configuration
+├── .omp_zen.toml    # Oh My Posh theme configuration
+├── nix-darwin
+│   ├── flake.lock   # Flake lock file
+│   ├── flake.nix    # System and flake configuration
+│   └── home.nix     # Home-manager configuration
 ```
 
 ## Updating
 
 ```bash
-cd ./nix-darwin
-nix flake update
+nix flake update --flake ./nix-darwin
 ```
 
 ```bash
