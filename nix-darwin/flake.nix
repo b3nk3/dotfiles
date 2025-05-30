@@ -29,6 +29,9 @@
           # $ nix-env -qaP | grep wget
           nixpkgs.config.allowUnfree = true;
 
+          # Set the primary user for system-wide options that require it.
+          system.primaryUser = "benszabo";
+
           homebrew = {
             enable = true;
             brews = [
@@ -38,6 +41,7 @@
               "derailed/k9s/k9s"
               "easy-rsa"
               "granted"
+              "ThreeDotsLabs/tap/tdl"
               "mas"
               "terraform-docs"
             ];
@@ -50,6 +54,7 @@
             ];
             taps = [
               "common-fate/granted"
+              "ThreeDotsLabs/tap"
               {
                 name = "lottiehq/tap";
                 clone_target = "git@github.com:LottieHQ/homebrew-tap.git";
@@ -109,15 +114,10 @@
             enable = true;
             interactiveShellInit =
               let
-                node18 = pkgs.nodejs_18;
                 node20 = pkgs.nodejs_20;
                 node22 = pkgs.nodejs_22;
               in
               ''
-                function use_node18() {
-                  export PATH="${node18}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
-                  echo "Now using Node.js $(node --version)"
-                }
 
                 function use_node20() {
                   export PATH="${node20}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"

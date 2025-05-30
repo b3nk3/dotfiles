@@ -66,7 +66,7 @@ nix flake update --flake ./nix-darwin
 ```
 
 ```bash
-darwin-rebuild switch --flake ./nix-darwin#macbook
+sudo darwin-rebuild switch --flake ./nix-darwin#macbook
 ```
 
 ## License
