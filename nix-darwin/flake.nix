@@ -39,6 +39,10 @@
               "aws-sso-util"
               "lottiehq/tap/bifrost"
               "derailed/k9s/k9s"
+              "docker"
+              "docker-buildx"
+              "docker-compose"
+              "lazydocker"
               "easy-rsa"
               "granted"
               "ThreeDotsLabs/tap/tdl"
@@ -77,7 +81,6 @@
             obsidian
 
             # dev tools
-            bruno # https://www.usebruno.com/
             doppler
             go
             goreleaser
