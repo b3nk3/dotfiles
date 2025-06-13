@@ -91,6 +91,7 @@
             nixfmt-rfc-style
             nodejs # Latest stable version
             nodePackages.pnpm
+            nodePackages.turbo
             ollama
             tenv
 
