@@ -74,6 +74,7 @@ brew_install_and_dump() {
 
 # Aliases
 alias ls='ls --color'
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # shell integrations
 eval "$(fzf --zsh)"

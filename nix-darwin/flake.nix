@@ -38,6 +38,7 @@
               "awscli"
               "aws-sso-util"
               "lottiehq/tap/bifrost"
+              "biome"
               "derailed/k9s/k9s"
               "docker"
               "docker-buildx"
