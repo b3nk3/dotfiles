@@ -39,23 +39,25 @@
               "aws-sso-util"
               "lottiehq/tap/bifrost"
               "biome"
-              "derailed/k9s/k9s"
+              "code2prompt"
+              "colima"
               "docker"
               "docker-buildx"
               "docker-compose"
-              "lazydocker"
               "easy-rsa"
               "granted"
-              "ThreeDotsLabs/tap/tdl"
+              "lazydocker"
+              "llm"
               "mas"
               "terraform-docs"
+              "ThreeDotsLabs/tap/tdl"
             ];
             casks = [
+              "ghostty"
               "iina"
               "raycast"
-              "the-unarchiver"
-              "ghostty"
               "session-manager-plugin"
+              "the-unarchiver"
             ];
             taps = [
               "common-fate/granted"
@@ -91,7 +93,7 @@
             nixfmt-rfc-style
             nodejs # Latest stable version
             nodePackages.pnpm
-            nodePackages.turbo
+            turbo
             ollama
             tenv
 
