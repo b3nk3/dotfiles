@@ -64,7 +64,8 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # Add npm global bin to PATH
+    PATH = "$HOME/.npm-global/bin:$PATH";
   };
 
   # Let Home Manager install and manage itself.
