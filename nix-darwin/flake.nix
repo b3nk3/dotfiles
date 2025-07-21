@@ -44,6 +44,7 @@
               "docker"
               "docker-buildx"
               "docker-compose"
+              "docker-credential-helper"
               "easy-rsa"
               "granted"
               "lazydocker"

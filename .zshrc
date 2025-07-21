@@ -7,6 +7,7 @@ if [ ! -d $ZINIT_HOME ]; then
 fi
 
 export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:$HOME/.npm-global/bin
 export EDITOR="code --wait"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
