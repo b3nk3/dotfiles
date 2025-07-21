@@ -82,7 +82,7 @@ style = 'diamond'
 cache_duration = 'none'
 
 [[blocks.segments]]
-template = '{{ .FormattedMs }}'
+template = ' {{ .FormattedMs }} '
 foreground = 'p:yellow'
 background = 'transparent'
 type = 'executiontime'
