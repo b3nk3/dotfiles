@@ -10,6 +10,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.npm-global/bin
 export EDITOR="code --wait"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export DOCKER_HOST="unix:///Users/benszabo/.config/colima/default/docker.sock"
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
