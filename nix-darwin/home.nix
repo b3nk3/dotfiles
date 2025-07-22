@@ -45,6 +45,7 @@
     ".gitconfig".source = ../.gitconfig;
     "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
     "/.config/ghostty/config".source = ../.ghostty.txt;
+    "/.config/colima/default/colima.yaml".source = ../colima.yaml;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
