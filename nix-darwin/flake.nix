@@ -92,7 +92,7 @@
             mise
             neovim
             nixfmt-rfc-style
-            nodejs # Latest stable version
+            nodejs_24 # Node.js 24 as default
             nodePackages.pnpm
             turbo
             ollama
@@ -123,6 +123,7 @@
             interactiveShellInit =
               let
                 node20 = pkgs.nodejs_20;
+                node22 = pkgs.nodejs_22;
                 node24 = pkgs.nodejs_24;
               in
               ''
@@ -132,13 +133,18 @@
                   echo "Now using Node.js $(node --version)"
                 }
 
+                function use_node22() {
+                  export PATH="${node22}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                  echo "Now using Node.js $(node --version)"
+                }
+
                 function use_node24() {
                   export PATH="${node24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
                   echo "Now using Node.js $(node --version)"
                 }
 
                 function use_node_default() {
-                  export PATH="${pkgs.nodejs}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                  export PATH="${pkgs.nodejs_24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
                   echo "Now using Node.js $(node --version)"
                 }
               '';
