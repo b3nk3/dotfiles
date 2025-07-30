@@ -8,6 +8,13 @@ fi
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.npm-global/bin
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 export EDITOR="code --wait"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export DOCKER_HOST="unix:///Users/benszabo/.config/colima/default/docker.sock"

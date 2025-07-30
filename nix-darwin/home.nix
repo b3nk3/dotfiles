@@ -64,10 +64,7 @@
   #  /etc/profiles/per-user/davish/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
-  home.sessionVariables = {
-    # Add npm global bin to PATH
-    PATH = "$HOME/.npm-global/bin:$PATH";
-  };
+  home.sessionVariables = { };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
