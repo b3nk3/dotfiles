@@ -89,3 +89,6 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
+
+# Source private secrets file if it exists
+[ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
