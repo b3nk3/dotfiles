@@ -19,8 +19,8 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 ./bootstrap/init.sh
 
 # 3. Clone and Build
-git clone [your-repo-url]
-cd [repo-name]
+git clone https://github.com/benszabo/dotfiles.git
+cd dotfiles
 sudo darwin-rebuild switch --flake .#macbook
 ```
 
@@ -29,7 +29,6 @@ sudo darwin-rebuild switch --flake .#macbook
 ### Node.js Version Switching
 
 ```bash
-use_node18  # Switch to Node.js 18
 use_node20  # Switch to Node.js 20
 use_node22  # Switch to Node.js 22
 use_default # Switch to system default
@@ -67,7 +66,3 @@ nix flake update --flake ./nix-darwin
 ```bash
 sudo darwin-rebuild switch --flake ./nix-darwin#macbook
 ```
-
-## License
-
-[Your chosen license]
