@@ -13,16 +13,15 @@ MacOS system configuration using nix-darwin and home-manager.
 
 ```bash
 # 1. Install Nix
-sh <(curl -L https://nixos.org/nix/install)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
 
-# 2. Enable Flakes
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+# 2. Add nix-darwin
+./bootstrap/init.sh
 
 # 3. Clone and Build
 git clone [your-repo-url]
 cd [repo-name]
-darwin-rebuild switch --flake .#macbook
+sudo darwin-rebuild switch --flake .#macbook
 ```
 
 ## Usage
