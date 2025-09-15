@@ -37,7 +37,6 @@
             brews = [
               "awscli"
               "aws-sso-util"
-              "lottiehq/tap/bifrost"
               "biome"
               "code2prompt"
               "colima"
@@ -54,6 +53,7 @@
               "ThreeDotsLabs/tap/tdl"
             ];
             casks = [
+              "bifrost"
               "ghostty"
               "iina"
               "raycast"
@@ -63,11 +63,7 @@
             taps = [
               "common-fate/granted"
               "ThreeDotsLabs/tap"
-              {
-                name = "lottiehq/tap";
-                clone_target = "git@github.com:LottieHQ/homebrew-tap.git";
-                force_auto_update = true;
-              }
+              "b3nk3/tap"
             ];
             masApps = {
               #  Install Mac App Store apps
