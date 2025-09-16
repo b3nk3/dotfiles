@@ -83,6 +83,7 @@
             # dev tools
             doppler
             go
+            golangci-lint
             goreleaser
             gh
             mise
