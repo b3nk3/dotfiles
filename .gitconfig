@@ -18,7 +18,7 @@ renames = true
 cmd = code --wait --diff $LOCAL $REMOTE
 
 [pull]
-rebase = true
+rebase = false
 
 [commit]
 gpgsign = true
