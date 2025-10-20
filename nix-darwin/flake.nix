@@ -49,6 +49,7 @@
               "lazydocker"
               "llm"
               "mas"
+              "mkcert"
               "terraform-docs"
               "ThreeDotsLabs/tap/tdl"
             ];
