@@ -12,16 +12,16 @@ MacOS system configuration using nix-darwin and home-manager.
 ## Installation
 
 ```bash
-# 1. Install Nix
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
+# 1. Install Nix from Determinate Systems https://docs.determinate.systems/
+Linux: curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+MacOS: https://install.determinate.systems/determinate-pkg/stable/Universal
 
-# 2. Add nix-darwin
-./bootstrap/init.sh
-
-# 3. Clone and Build
+# 2. Clone and bootstrap nix-darwin
 git clone https://github.com/benszabo/dotfiles.git
-cd dotfiles
-sudo darwin-rebuild switch --flake .#macbook
+./bootstrap/nix-darwin-init.sh
+
+# 3. Build and switch to the configuration
+sudo darwin-rebuild switch --flake ./nix-darwin#macbook
 ```
 
 ## Usage
