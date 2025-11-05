@@ -74,3 +74,6 @@ shell-integration-features = ssh-terminfo,ssh-env
 # macos
 macos-option-as-alt = true
 macos-titlebar-style = transparent
+
+# keybinds
+keybind = shift+enter=text:\n
