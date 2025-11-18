@@ -3,7 +3,9 @@
   description = "Ben's Darwin system flake";
 
   inputs = {
+    # nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -19,11 +21,12 @@
       nix-darwin,
       nix-homebrew,
       nixpkgs,
+      nixpkgs-stable,
       home-manager,
     }:
     let
       configuration =
-        { pkgs, ... }:
+        { pkgs, stable, ... }:
         {
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
@@ -93,6 +96,7 @@
             nodePackages.pnpm
             ollama
             tenv
+            stable.turbo
             zig
 
             # shell
@@ -172,6 +176,12 @@
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .#simple
       darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
+        specialArgs = {
+          stable = import nixpkgs-stable {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
+        };
         modules = [
           configuration
 
