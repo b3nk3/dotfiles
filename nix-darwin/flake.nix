@@ -87,14 +87,13 @@
             golangci-lint
             goreleaser
             gh
-            mise
             neovim
-            nixfmt-rfc-style
+            nixfmt
             nodejs_24 # Node.js 24 as default
             nodePackages.pnpm
-            turbo
             ollama
             tenv
+            zig
 
             # shell
             fzf
