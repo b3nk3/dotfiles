@@ -16,7 +16,7 @@ MacOS system configuration using nix-darwin and home-manager.
 Linux: curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
 MacOS: https://install.determinate.systems/determinate-pkg/stable/Universal
 
-# 2. Clone and bootstrap nix-darwin
+# 2. Clone and bootstrap nix-darwin (installs darwin-rebuild etc.)
 git clone https://github.com/benszabo/dotfiles.git
 ./bootstrap/nix-darwin-init.sh
 
