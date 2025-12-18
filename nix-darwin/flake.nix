@@ -195,16 +195,6 @@
           # home manager
           users.users.benszabo.home = "/Users/benszabo";
           home-manager.backupFileExtension = "backup";
-
-          home.file.".docker/cli-plugins/docker-compose".source =
-            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-compose";
-
-          home.file.".docker/cli-plugins/docker-buildx".source =
-            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-buildx";
-
-          home.file.".docker/cli-plugins/docker-credential-osxkeychain".source =
-            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-credential-osxkeychain";
-
         };
     in
     {
