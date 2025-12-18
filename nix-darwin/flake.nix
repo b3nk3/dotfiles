@@ -167,6 +167,32 @@
           security.pam.services.sudo_local.touchIdAuth = true;
           security.pam.services.sudo_local.text = "auth sufficient pam_tid.so.2"; # workaround...
 
+          # sysytem settings
+          system.defaults.dock.orientation = "left";
+          system.defaults.dock.mineffect = "genie";
+          system.defaults.dock.minimize-to-application = true;
+
+          system.defaults.dock.autohide = true;
+          system.defaults.dock.show-recents = false;
+          # needs logout/login to take effect
+          system.defaults.CustomUserPreferences = {
+              "com.apple.symbolichotkeys" = {
+                AppleSymbolicHotKeys = {
+                  # Disable 'Cmd + Space' for Spotlight Search
+                  # Key "64" is the identifier for the shortcut
+                  "64" = {
+                    enabled = false;
+                  };
+                  # Optionally, disable 'Cmd + Alt + Space' for Finder search window
+                  # Key "65" is the identifier for the Finder search shortcut
+                  "65" = {
+                    enabled = false;
+                  };
+                };
+              };
+            };
+
+
           # home manager
           users.users.benszabo.home = "/Users/benszabo";
           home-manager.backupFileExtension = "backup";
