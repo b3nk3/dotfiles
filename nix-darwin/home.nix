@@ -47,6 +47,14 @@
     "/.config/ghostty/config".source = ../.ghostty.txt;
     "/.config/colima/_templates/default.yaml".source = ../colima.yaml;
 
+    # Docker CLI plugins
+    ".docker/cli-plugins/docker-compose".source =
+      config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-compose";
+    ".docker/cli-plugins/docker-buildx".source =
+      config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-buildx";
+    ".docker/cli-plugins/docker-credential-osxkeychain".source =
+      config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-credential-osxkeychain";
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
