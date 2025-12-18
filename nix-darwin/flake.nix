@@ -145,7 +145,7 @@
                 }
 
                 function use_node_default() {
-                  export PATH="${pkgs.nodejs_24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
+                  export PATH="${node24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
                   echo "Now using Node.js $(node --version)"
                 }
               '';
@@ -176,26 +176,35 @@
           system.defaults.dock.show-recents = false;
           # needs logout/login to take effect
           system.defaults.CustomUserPreferences = {
-              "com.apple.symbolichotkeys" = {
-                AppleSymbolicHotKeys = {
-                  # Disable 'Cmd + Space' for Spotlight Search
-                  # Key "64" is the identifier for the shortcut
-                  "64" = {
-                    enabled = false;
-                  };
-                  # Optionally, disable 'Cmd + Alt + Space' for Finder search window
-                  # Key "65" is the identifier for the Finder search shortcut
-                  "65" = {
-                    enabled = false;
-                  };
+            "com.apple.symbolichotkeys" = {
+              AppleSymbolicHotKeys = {
+                # Disable 'Cmd + Space' for Spotlight Search
+                # Key "64" is the identifier for the shortcut
+                "64" = {
+                  enabled = false;
+                };
+                # Optionally, disable 'Cmd + Alt + Space' for Finder search window
+                # Key "65" is the identifier for the Finder search shortcut
+                "65" = {
+                  enabled = false;
                 };
               };
             };
-
+          };
 
           # home manager
           users.users.benszabo.home = "/Users/benszabo";
           home-manager.backupFileExtension = "backup";
+
+          home.file.".docker/cli-plugins/docker-compose".source =
+            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-compose";
+
+          home.file.".docker/cli-plugins/docker-buildx".source =
+            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-buildx";
+
+          home.file.".docker/cli-plugins/docker-credential-osxkeychain".source =
+            config.lib.file.mkOutOfStoreSymlink "/opt/homebrew/bin/docker-credential-osxkeychain";
+
         };
     in
     {
