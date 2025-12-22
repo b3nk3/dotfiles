@@ -28,6 +28,7 @@ format = ssh
 
 [gpg "ssh"]
 program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+allowedSignersFile = ~/.ssh/allowed_signers
 
 [column]
 ui = auto
@@ -70,5 +71,5 @@ updateRefs = true
 # (just 'diff3' if git version < 2.3)
 conflictstyle = zdiff3
 
-[includeIf "gitdir:~/Developer/Cello/"] # matches sub dirs
-  path = ~/Developer/Cello/.gitconfig
+[includeIf "gitdir:~/Developer/cello/"] # matches sub dirs
+  path = ~/Developer/cello/.gitconfig
