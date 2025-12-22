@@ -4,18 +4,18 @@ name = Ben Szabo
 signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOGPefpWpSvr5a5SsgTlX5SWRUBUnftyY70h3mu222DF
 
 [core]
-editor = code --wait
+editor = cursor --wait
 excludesfile = ~/.gitignore
 
 [diff]
-tool = vscode
+tool = cursor
 algorithm = histogram
 colorMoved = plain
 mnemonicPrefix = true
 renames = true
 
-[difftool "vscode"]
-cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "cursor"]
+cmd = cursor --wait --diff $LOCAL $REMOTE
 
 [pull]
 rebase = false
@@ -70,5 +70,5 @@ updateRefs = true
 # (just 'diff3' if git version < 2.3)
 conflictstyle = zdiff3
 
-[url "ssh://git@github.com/lottiehq"]
-insteadOf = https://github.com/lottiehq/*
+[includeIf "gitdir:~/Developer/Cello/"] # matches sub dirs
+  path = ~/Developer/Cello/.gitconfig
