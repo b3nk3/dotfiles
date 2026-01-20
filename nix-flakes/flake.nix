@@ -35,76 +35,6 @@
           # Set the primary user for system-wide options that require it.
           system.primaryUser = "benszabo";
 
-          homebrew = {
-            enable = true;
-            brews = [
-              "awscli"
-              "aws-sso-util"
-              "biome"
-              "code2prompt"
-              "colima"
-              "docker"
-              "docker-buildx"
-              "docker-compose"
-              "docker-credential-helper"
-              "easy-rsa"
-              "granted"
-              "lazydocker"
-              "llm"
-              "mas"
-              "mkcert"
-              "terraform-docs"
-              "ThreeDotsLabs/tap/tdl"
-            ];
-            casks = [
-              "bifrost"
-              "ghostty"
-              "iina"
-              "raycast"
-              "session-manager-plugin"
-              "the-unarchiver"
-            ];
-            taps = [
-              "common-fate/granted"
-              "ThreeDotsLabs/tap"
-              "b3nk3/tap"
-            ];
-            masApps = {
-              #  Install Mac App Store apps
-              # use mas-cli to get their id
-              # Need to be logged in and to have purchased the app before
-              # "Yoink" = 457622435;
-            };
-            onActivation.cleanup = "zap";
-            onActivation.autoUpdate = true;
-            onActivation.upgrade = true;
-          };
-
-          environment.systemPackages = with pkgs; [
-            # apps
-            obsidian
-
-            # dev tools
-            doppler
-            go
-            golangci-lint
-            goreleaser
-            gh
-            neovim
-            nixfmt
-            nodejs_24 # Node.js 24 as default
-            nodePackages.pnpm
-            ollama
-            tenv
-            stable.turbo
-            zig
-
-            # shell
-            fzf
-            zoxide
-            oh-my-posh
-          ];
-
           fonts.packages = [
             pkgs.nerd-fonts.jetbrains-mono
           ];
@@ -254,6 +184,8 @@
         };
         modules = [
           configuration
+          ./modules/homebrew/common.nix
+          ./modules/system-packages/common.nix
 
           home-manager.darwinModules.home-manager
           {
