@@ -7,33 +7,40 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
-  let
-    configuration = { pkgs, ... }: {
-      # List packages installed in system profile
-      environment.systemPackages = with pkgs; [
-        # Add your packages here
-      ];
+  outputs =
+    inputs@{
+      self,
+      nix-darwin,
+      nixpkgs,
+    }:
+    let
+      configuration =
+        { pkgs, ... }:
+        {
+          # List packages installed in system profile
+          environment.systemPackages = with pkgs; [
+            # Add your packages here
+          ];
 
-      # Nix configuration
-      nix.enable = false;
+          # Nix configuration
+          nix.enable = false;
 
-      # Create /etc/zshrc that loads the nix-darwin environment
-      programs.zsh.enable = true;
+          # Create /etc/zshrc that loads the nix-darwin environment
+          programs.zsh.enable = true;
 
-      # Set Git commit hash for darwin-version
-      system.configurationRevision = self.rev or self.dirtyRev or null;
+          # Set Git commit hash for darwin-version
+          system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      # Used for backwards compatibility, please read the changelog before changing
-      system.stateVersion = 4;
+          # Used for backwards compatibility, please read the changelog before changing
+          system.stateVersion = 4;
 
-      # The platform the configuration will be used on
-      nixpkgs.hostPlatform = "aarch64-darwin";
+          # The platform the configuration will be used on
+          nixpkgs.hostPlatform = "aarch64-darwin";
+        };
+    in
+    {
+      darwinConfigurations.Mac = nix-darwin.lib.darwinSystem {
+        modules = [ configuration ];
+      };
     };
-  in
-  {
-    darwinConfigurations.Mac = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
-    };
-  };
 }

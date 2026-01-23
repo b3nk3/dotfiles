@@ -129,10 +129,18 @@
                 DSDontWriteUSBStores = true;
               };
               "com.apple.finder" = {
-
+                # Additional finder preferences can be added here
               };
+              # Reference https://gist.github.com/mkhl/455002#file-ctrl-f1-c-L12
               "com.apple.symbolichotkeys" = {
                 AppleSymbolicHotKeys = {
+                  # Disable Ctrl + Space and Opt + Ctrl + Space for input source selection (next/prev)
+                  "60" = {
+                    enabled = false;
+                  };
+                  "61" = {
+                    enabled = false;
+                  };
                   # Disable 'Cmd + Space' for Spotlight Search
                   # Key "64" is the identifier for the shortcut
                   "64" = {
@@ -143,13 +151,29 @@
                   "65" = {
                     enabled = false;
                   };
-                  # Mission Control: Move left a space
+                  # Mission Control: Move left a space (use 80 for slower speed)
                   "79" = {
-                    enabled = true;
+                    enabled = 1;
+                    value = {
+                      parameters = [
+                        65535
+                        123
+                        8650752
+                      ];
+                      type = "standard";
+                    };
                   };
-                  # Mission Control: Move right a space
+                  # Mission Control: Move right a space (use 81 for slower speed)
                   "81" = {
-                    enabled = true;
+                    enabled = 1;
+                    value = {
+                      parameters = [
+                        65535
+                        124
+                        8650752
+                      ];
+                      type = "standard";
+                    };
                   };
                   # Siri keyboard shortcut (Type to Siri)
                   "176" = {
