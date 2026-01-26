@@ -15,7 +15,7 @@
     neovim
     nixfmt
     nodejs_24 # Node.js 24 as default
-    nodePackages.pnpm
+    pnpm
     ollama
     tenv
     stable.turbo
