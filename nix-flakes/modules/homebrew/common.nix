@@ -20,6 +20,7 @@
       "llm"
       "mas"
       "mkcert"
+      "ollama"
       "terraform-docs"
       "ThreeDotsLabs/tap/tdl"
     ];
