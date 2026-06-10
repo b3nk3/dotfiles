@@ -42,6 +42,7 @@
     # The left hand side is the path to the file in your home directory.
     # The right hand is the path to the file in the repo, relative to this file.
     ".zshrc".source = ../.zshrc;
+    ".zprofile".source = ../.zprofile;
     ".gitconfig".source = ../.gitconfig;
     "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
     "/.config/ghostty/config".source = ../.ghostty.txt;
