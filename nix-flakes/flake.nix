@@ -25,15 +25,17 @@
       home-manager,
     }:
     let
+      stable = import nixpkgs-stable {
+        system = "aarch64-darwin";
+        config.allowUnfree = true;
+      };
+
       configuration =
         { pkgs, stable, ... }:
         {
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
           nixpkgs.config.allowUnfree = true;
-
-          # Set the primary user for system-wide options that require it.
-          system.primaryUser = "benszabo";
 
           fonts.packages = [
             pkgs.nerd-fonts.jetbrains-mono
@@ -160,55 +162,67 @@
           };
           # needs logout/login to take effect
 
-          # home manager
-          users.users.benszabo.home = "/Users/benszabo";
           home-manager.backupFileExtension = "backup";
+        };
+
+      mkDarwinConfiguration =
+        {
+          username,
+          homebrewUser ? username,
+          homebrewProfile,
+        }:
+        nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit stable; };
+          modules = [
+            configuration
+            {
+              system.primaryUser = username;
+              users.users.${username}.home = "/Users/${username}";
+              homebrew.caskArgs.appdir = "/Users/${username}/Applications";
+            }
+            ./modules/homebrew/common.nix
+            homebrewProfile
+            ./modules/system-packages/common.nix
+
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home.nix;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
+
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = homebrewUser;
+              };
+            }
+          ];
         };
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#simple
-      darwinConfigurations."macbook" = nix-darwin.lib.darwinSystem {
-        specialArgs = {
-          stable = import nixpkgs-stable {
-            system = "aarch64-darwin";
-            config.allowUnfree = true;
-          };
+      # $ darwin-rebuild build --flake .#macbook
+      # $ darwin-rebuild build --flake .#euphoric-mac
+      darwinConfigurations = {
+        macbook = mkDarwinConfiguration {
+          username = "benszabo";
+          homebrewProfile = ./modules/homebrew/personal.nix;
         };
-        modules = [
-          configuration
-          ./modules/homebrew/common.nix
-          ./modules/system-packages/common.nix
-
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.benszabo = import ./home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              # Install Homebrew under the default prefix
-              enable = true;
-
-              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-              enableRosetta = true;
-
-              # User owning the Homebrew prefix
-              user = "benszabo";
-
-              # Automatically migrate existing Homebrew installations
-              # autoMigrate = true;
-            };
-          }
-
-        ];
+        euphoric-mac = mkDarwinConfiguration {
+          username = "benszabo";
+          homebrewUser = "benszabo-a";
+          homebrewProfile = ./modules/homebrew/work.nix;
+        };
       };
 
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."macbook".pkgs;
+      darwinPackages = {
+        macbook = self.darwinConfigurations.macbook.pkgs;
+        euphoric-mac = self.darwinConfigurations.euphoric-mac.pkgs;
+      };
     };
 }
