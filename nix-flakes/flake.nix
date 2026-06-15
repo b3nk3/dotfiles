@@ -72,6 +72,12 @@
 
           # sysytem settings
           system.defaults = {
+            NSGlobalDomain = {
+              AppleInterfaceStyle = "Dark";
+              AppleShowAllFiles = true;
+              # Add a context menu item for showing the Web Inspector in web views
+              WebKitDeveloperExtras = true;
+            };
             dock = {
               orientation = "left";
               mineffect = "genie";
@@ -151,12 +157,6 @@
                     enabled = false;
                   };
                 };
-              };
-              NSGlobalDomain = {
-                AppleShowAllFiles = true;
-                # Add a context menu item for showing the Web Inspector in web views
-                WebKitDeveloperExtras = true;
-                # "com.apple.trackpad.threeFingerDrag" = true;
               };
             };
           };
