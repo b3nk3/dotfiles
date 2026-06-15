@@ -16,7 +16,6 @@
     nixfmt
     nodejs_24 # Node.js 24 as default
     pnpm
-    ollama
     tenv
     stable.turbo
     zig

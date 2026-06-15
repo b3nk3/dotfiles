@@ -22,6 +22,7 @@
       "mas"
       "mise"
       "mkcert"
+      "ollama"
       "terraform-docs"
       "ThreeDotsLabs/tap/tdl"
     ];

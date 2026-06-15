@@ -6,7 +6,7 @@ MacOS system configuration using nix-darwin and home-manager.
 
 - **System Management**: Using nix-darwin and homebrew
 - **Modular Configuration**: Reusable modules for homebrew and system packages
-- **Node.js Version Management**: Easy switching between Node.js 18, 20, 22
+- **Node.js**: Node.js 24 via nix; per-project versions via mise
 - **Shell Configuration**: Zsh with zinit plugin management
 - **Dotfile Management**: Via home-manager
 
@@ -26,14 +26,6 @@ sudo darwin-rebuild switch --flake ./nix-flakes#macbook
 ```
 
 ## Usage
-
-### Node.js Version Switching
-
-```bash
-use_node20  # Switch to Node.js 20
-use_node22  # Switch to Node.js 22
-use_default # Switch to system default
-```
 
 ### Shell Features
 
