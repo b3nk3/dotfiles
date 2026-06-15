@@ -179,6 +179,8 @@
               system.primaryUser = username;
               users.users.${username}.home = "/Users/${username}";
               homebrew.caskArgs.appdir = "/Users/${username}/Applications";
+              homebrew.user = homebrewUser;
+              nix-homebrew.user = homebrewUser;
             }
             ./modules/homebrew/common.nix
             homebrewProfile
@@ -197,7 +199,6 @@
               nix-homebrew = {
                 enable = true;
                 enableRosetta = true;
-                user = homebrewUser;
               };
             }
           ];
