@@ -5,6 +5,9 @@
   homebrew = {
     brews = [
       "python"
+      "uv"
+
     ];
+    casks = ["google-cloud-sdk"];
   };
 }
