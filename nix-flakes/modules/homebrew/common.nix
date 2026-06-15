@@ -3,6 +3,9 @@
 { pkgs, stable, ... }:
 {
   homebrew = {
+    caskArgs = {
+      appdir = "~/Applications";
+    };
     enable = true;
     brews = [
       "awscli"
