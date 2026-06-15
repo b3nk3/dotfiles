@@ -75,8 +75,6 @@
             NSGlobalDomain = {
               AppleInterfaceStyle = "Dark";
               AppleShowAllFiles = true;
-              # Add a context menu item for showing the Web Inspector in web views
-              WebKitDeveloperExtras = true;
             };
             dock = {
               orientation = "left";
@@ -157,6 +155,10 @@
                     enabled = false;
                   };
                 };
+              };
+              NSGlobalDomain = {
+                # Add a context menu item for showing the Web Inspector in web views
+                WebKitDeveloperExtras = true;
               };
             };
           };
