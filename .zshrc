@@ -38,7 +38,7 @@ if type brew &>/dev/null; then
 fi
 
 # load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 
 zinit cdreplay -q
 

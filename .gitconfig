@@ -71,5 +71,5 @@ updateRefs = true
 # (just 'diff3' if git version < 2.3)
 conflictstyle = zdiff3
 
-[includeIf "gitdir:~/Developer/cello/"] # matches sub dirs
-  path = ~/Developer/cello/.gitconfig
+[includeIf "gitdir:~/Developer/euphoric/"] # matches sub dirs
+  path = ~/Developer/euphoric/.gitconfig
