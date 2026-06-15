@@ -29,7 +29,6 @@
     casks = [
       "bifrost"
       "ghostty"
-      "iina"
       "raycast"
       "session-manager-plugin"
       "the-unarchiver"

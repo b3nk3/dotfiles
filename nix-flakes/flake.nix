@@ -178,7 +178,6 @@
             {
               system.primaryUser = username;
               users.users.${username}.home = "/Users/${username}";
-              homebrew.caskArgs.appdir = "/Users/${username}/Applications";
               homebrew.user = homebrewUser;
               nix-homebrew.user = homebrewUser;
             }
