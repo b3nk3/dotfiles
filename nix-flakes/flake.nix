@@ -48,38 +48,7 @@
 
           # Create /etc/zshrc that loads the nix-darwin environment.
           # default shell on catalina and up
-          # Configure zsh with the Node.js version switching functions
-          programs.zsh = {
-            enable = true;
-            interactiveShellInit =
-              let
-                node20 = pkgs.nodejs_20;
-                node22 = pkgs.nodejs_22;
-                node24 = pkgs.nodejs_24;
-              in
-              ''
-
-                function use_node20() {
-                  export PATH="${node20}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
-                  echo "Now using Node.js $(node --version)"
-                }
-
-                function use_node22() {
-                  export PATH="${node22}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
-                  echo "Now using Node.js $(node --version)"
-                }
-
-                function use_node24() {
-                  export PATH="${node24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
-                  echo "Now using Node.js $(node --version)"
-                }
-
-                function use_node_default() {
-                  export PATH="${node24}/bin:$(echo $PATH | sed 's|/nix/store/[^:]*nodejs[^:]*bin:||g')"
-                  echo "Now using Node.js $(node --version)"
-                }
-              '';
-          };
+          programs.zsh.enable = true;
           # programs.fish.enable = true;
 
           # Set Git commit hash for darwin-version.
