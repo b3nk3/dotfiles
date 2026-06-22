@@ -4,6 +4,7 @@
 {
   homebrew = {
     brews = [
+      "ffmpeg"
       "python"
       "uv"
     ];
