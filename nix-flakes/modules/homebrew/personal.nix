@@ -3,7 +3,10 @@
 { ... }:
 {
   homebrew = {
-    brews = [ ];
+    brews = [
+      "python"
+      "uv"
+    ];
     casks = [
       "claude-code"
       "iina"
