@@ -4,7 +4,10 @@
 {
   homebrew = {
     brews = [ ];
-    casks = [ "iina"];
+    casks = [
+      "claude-code"
+      "iina"
+    ];
     taps = [ ];
   };
 }
