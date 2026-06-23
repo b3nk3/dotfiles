@@ -5,11 +5,9 @@
   homebrew = {
     brews = [
       "ffmpeg"
-      "python"
-      "uv"
     ];
     casks = [
-      "claude-code"
+      "bifrost"
       "iina"
     ];
     taps = [ ];

@@ -3,11 +3,7 @@
 { ... }:
 {
   homebrew = {
-    brews = [
-      "python"
-      "uv"
-
-    ];
-    casks = ["google-cloud-sdk"];
+    brews = [ ];
+    casks = [ "gcloud-cli" ];
   };
 }

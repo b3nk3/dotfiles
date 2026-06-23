@@ -23,11 +23,13 @@
       "mise"
       "mkcert"
       "ollama"
+      "python"
       "terraform-docs"
       "ThreeDotsLabs/tap/tdl"
+      "uv"
     ];
     casks = [
-      "bifrost"
+      "claude-code"
       "ghostty"
       "raycast"
       "session-manager-plugin"
