@@ -24,6 +24,7 @@ brightBlue = "#03edf9"
 brightMagenta = "#ff7edb"
 brightCyan = "#03edf9"
 brightWhite = "#ffffff"
+gcpBlue = "#4285F4"
 
 
 [secondary_prompt]
@@ -77,6 +78,16 @@ foreground = 'p:black'
 background = 'p:yellow'
 type = 'aws'
 style = 'diamond'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+
+[[blocks.segments]]
+type = 'gcp'
+style = 'diamond'
+foreground = 'p:brightWhite'
+background = 'p:gcpBlue'
+template = ' 󱇶 {{.Project}} :: {{.Account}} '
 
 [blocks.segments.properties]
 cache_duration = 'none'
