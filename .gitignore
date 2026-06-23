@@ -1,2 +1,3 @@
 # Private secrets file
 .zshrc.secrets
+.DS_Store
