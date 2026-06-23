@@ -155,6 +155,16 @@
                   "176" = {
                     enabled = false;
                   };
+                  # Save picture of screen as a file (Shift+Cmd+3)
+                  "28" = { enabled = false; };
+                  # Copy picture of screen to the clipboard (Ctrl+Shift+Cmd+3)
+                  "29" = { enabled = false; };
+                  # Save picture of selected area as a file (Shift+Cmd+4)
+                  "30" = { enabled = false; };
+                  # Copy picture of selected area to the clipboard (Ctrl+Shift+Cmd+4)
+                  "31" = { enabled = false; };
+                  # Screenshot and recording options (Shift+Cmd+5)
+                  "184" = { enabled = false; };
                 };
               };
               NSGlobalDomain = {
