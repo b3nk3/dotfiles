@@ -15,6 +15,7 @@
       "docker-compose"
       "docker-credential-helper"
       "easy-rsa"
+      "fastmod"
       "granted"
       "protobuf"
       "lazydocker"
