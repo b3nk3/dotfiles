@@ -14,8 +14,10 @@
     gh
     neovim
     nixfmt
-    nodejs_24 # Node.js 24 as default
-    pnpm
+    nodejs_26
+    # pnpm must run under the same node; the default build uses nodejs_24,
+    # which has a broken fd-tracking bug on darwin (nixpkgs #536039)
+    (pnpm.override { nodejs-slim = nodejs-slim_26; })
     tenv
     stable.turbo
     zig

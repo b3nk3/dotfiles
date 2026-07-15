@@ -24,6 +24,7 @@
       "mise"
       "mkcert"
       "ollama"
+      "anomalyco/tap/opencode"
       "python"
       "terraform-docs"
       "ThreeDotsLabs/tap/tdl"
@@ -37,6 +38,7 @@
       "the-unarchiver"
     ];
     taps = [
+      "anomalyco/tap"
       "common-fate/granted"
       "ThreeDotsLabs/tap"
       "b3nk3/tap"
