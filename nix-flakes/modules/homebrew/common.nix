@@ -24,6 +24,7 @@
       "mise"
       "mkcert"
       "ollama"
+      "open-code-review"
       "anomalyco/tap/opencode"
       "python"
       "terraform-docs"
