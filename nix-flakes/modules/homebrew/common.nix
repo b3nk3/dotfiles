@@ -9,7 +9,6 @@
       "aws-sso-util"
       "biome"
       "code2prompt"
-      "colima"
       "docker"
       "docker-buildx"
       "docker-compose"
@@ -32,6 +31,7 @@
       "uv"
     ];
     casks = [
+      "1password-cli"
       "claude-code"
       "ghostty"
       "raycast"

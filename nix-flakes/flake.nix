@@ -31,7 +31,7 @@
       };
 
       configuration =
-        { pkgs, stable, ... }:
+        { config, pkgs, stable, ... }:
         {
           # List packages installed in system profile. To search by name, run:
           # $ nix-env -qaP | grep wget
@@ -184,6 +184,20 @@
             };
           };
           # needs logout/login to take effect
+
+          # GUI apps (Podman Desktop) don't get the nix PATH, but they do search
+          # /opt/podman/bin (the official installer's location)
+          system.activationScripts.postActivation.text = ''
+            mkdir -p /opt/podman/bin
+            ln -sfn /run/current-system/sw/bin/podman /opt/podman/bin/podman
+          '';
+
+          # Docker tools (CLI, compose, GUI apps) default to /var/run/docker.sock;
+          # point it at podman's machine socket. /var/run is wiped on boot, hence a daemon.
+          launchd.daemons.podman-docker-socket = {
+            script = "ln -sfn ${config.users.users.${config.system.primaryUser}.home}/.local/share/containers/podman/machine/podman.sock /var/run/docker.sock";
+            serviceConfig.RunAtLoad = true;
+          };
 
           home-manager.backupFileExtension = "backup";
         };

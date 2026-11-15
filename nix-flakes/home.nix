@@ -1,6 +1,6 @@
 # home.nix
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -46,7 +46,6 @@
     ".gitconfig".source = ../.gitconfig;
     "/ohmyposh/zen.toml".source = ../.omp_zen.toml;
     "/.config/ghostty/config".source = ../.ghostty.txt;
-    "/.config/colima/_templates/default.yaml".source = ../colima.yaml;
 
     # Docker CLI plugins
     ".docker/cli-plugins/docker-compose".source =
@@ -74,6 +73,18 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = { };
+
+  # Podman Desktop writes its own settings.json, so patch it rather than own it.
+  # Pin the binary to the stable /opt/podman link (see flake.nix): a /nix/store
+  # path set from the UI breaks as soon as it's garbage-collected.
+  home.activation.podmanDesktopBinaryPath = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    settings="$HOME/.local/share/containers/podman-desktop/configuration/settings.json"
+    if [ -f "$settings" ]; then
+      tmp=$(mktemp)
+      ${pkgs.jq}/bin/jq '."podman.binary.path" = "/opt/podman/bin/podman"' "$settings" > "$tmp"
+      run mv "$tmp" "$settings"
+    fi
+  '';
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -4,11 +4,16 @@
 {
   homebrew = {
     brews = [
+      "agent-browser"
+      "baguette"
+      "cocoapods"
       "ffmpeg"
+      "yt-dlp"
     ];
     casks = [
       "bifrost"
       "iina"
+      "podman-desktop"
     ];
     taps = [ ];
   };
