@@ -35,6 +35,7 @@
       "1password-cli"
       "claude-code"
       "ghostty"
+      "podman-desktop"
       "raycast"
       "session-manager-plugin"
       "the-unarchiver"

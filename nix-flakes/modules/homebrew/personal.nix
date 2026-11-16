@@ -12,7 +12,6 @@
     casks = [
       "bifrost"
       "iina"
-      "podman-desktop"
     ];
     taps = [ ];
   };
