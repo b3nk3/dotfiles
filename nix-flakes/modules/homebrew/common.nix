@@ -5,6 +5,7 @@
   homebrew = {
     enable = true;
     brews = [
+      "agent-browser"
       "awscli"
       "aws-sso-util"
       "biome"

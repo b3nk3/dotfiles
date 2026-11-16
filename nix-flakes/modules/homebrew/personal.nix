@@ -4,7 +4,6 @@
 {
   homebrew = {
     brews = [
-      "agent-browser"
       "baguette"
       "cocoapods"
       "ffmpeg"
