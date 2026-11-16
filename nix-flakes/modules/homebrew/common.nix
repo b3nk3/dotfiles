@@ -33,7 +33,7 @@
     ];
     casks = [
       "1password-cli"
-      "claude-code"
+      "claude-code@latest"
       "ghostty"
       "podman-desktop"
       "raycast"
