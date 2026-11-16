@@ -194,8 +194,13 @@
 
           # Docker tools (CLI, compose, GUI apps) default to /var/run/docker.sock;
           # point it at podman's machine socket. /var/run is wiped on boot, hence a daemon.
+          # The socket lives in the user's per-uid temp dir; podman only creates its
+          # ~/.local/share/.../podman.sock link when podman-mac-helper is installed.
           launchd.daemons.podman-docker-socket = {
-            script = "ln -sfn ${config.users.users.${config.system.primaryUser}.home}/.local/share/containers/podman/machine/podman.sock /var/run/docker.sock";
+            script = ''
+              tmpdir=$(/usr/bin/sudo -u ${config.system.primaryUser} /usr/bin/getconf DARWIN_USER_TEMP_DIR)
+              ln -sfn "''${tmpdir}podman/podman-machine-default-api.sock" /var/run/docker.sock
+            '';
             serviceConfig.RunAtLoad = true;
           };
 
