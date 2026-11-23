@@ -35,6 +35,7 @@
       "1password-cli"
       "antigravity-cli"
       "claude-code@latest"
+      "codex"
       "ghostty"
       "podman-desktop"
       "raycast"
