@@ -6,6 +6,7 @@
     brews = [
       "baguette"
       "cocoapods"
+      "fastlane"
       "ffmpeg"
       "yt-dlp"
     ];
