@@ -33,7 +33,6 @@
     ];
     casks = [
       "1password-cli"
-      "antigravity"
       "antigravity-cli"
       "claude-code@latest"
       "ghostty"
